@@ -15,6 +15,7 @@ export default function AdminPanel() {
   const [loadingCategory, setLoadingCategory] = useState(false);
 
   const token = localStorage.getItem("token");
+  const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   useEffect(() => {
     fetchProducts();
@@ -22,7 +23,7 @@ export default function AdminPanel() {
 
   async function fetchProducts() {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await axios.get(`${BASE_URL}/api/products`);
       setProducts(res.data);
     } catch (err) {
       alert("Failed to load products");
@@ -40,7 +41,7 @@ export default function AdminPanel() {
     if (logo) formData.append("logo", logo);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/products", formData, {
+      const res = await axios.post(`${BASE_URL}/api/products`, formData, {
         headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" },
       });
       setProducts((prev) => [...prev, res.data]);
@@ -69,7 +70,7 @@ export default function AdminPanel() {
 
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/products/${selectedProductId}/categories`,
+        `${BASE_URL}/api/products/${selectedProductId}/categories`,
         formData,
         {
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" },
@@ -91,7 +92,7 @@ export default function AdminPanel() {
   async function deleteProduct(id) {
     if (!window.confirm("Delete this product?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`, {
+      await axios.delete(`${BASE_URL}/api/products/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setProducts((prev) => prev.filter((p) => p._id !== id));
@@ -104,7 +105,7 @@ export default function AdminPanel() {
     if (!window.confirm("Delete this category?")) return;
     try {
       await axios.delete(
-        `http://localhost:5000/api/products/${productId}/categories/${categoryId}`,
+        `${BASE_URL}/api/products/${productId}/categories/${categoryId}`,
         {
           headers: { Authorization: `Bearer ${token}` }
         }
@@ -166,7 +167,7 @@ export default function AdminPanel() {
                 >
                   {product.logo && (
                     <img
-                      src={`http://localhost:5000/uploads/${product.logo}`}
+                      src={`${BASE_URL}/uploads/${product.logo}`}
                       alt={product.title}
                       className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                     />
@@ -202,7 +203,7 @@ export default function AdminPanel() {
                           <div className="flex items-center space-x-4">
                             {cat.image && (
                               <img
-                                src={`http://localhost:5000/uploads/${cat.image}`}
+                                src={`${BASE_URL}/uploads/${cat.image}`}
                                 alt={cat.description}
                                 className="w-12 h-12 sm:w-16 sm:h-16 object-contain rounded"
                               />

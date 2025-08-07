@@ -13,7 +13,7 @@ export default function Storefront() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await axios.get("http://localhost:5000/api/products");
+        const res = await axios.get(`${BASE_URL}/api/products`);
         setProducts(res.data);
       } catch {
         alert("Failed to load products");
@@ -103,7 +103,7 @@ export default function Storefront() {
                 {product.logo && (
                   <div className="w-16 h-16 sm:w-20 sm:h-20 mb-2 rounded-full overflow-hidden border-2 border-gray-200">
                     <img
-                      src={`http://localhost:5000/uploads/${product.logo}`}
+                      src={`${BASE_URL}/uploads/${product.logo}`}
                       alt={product.title}
                       className="w-full h-full object-cover"
                     />
@@ -157,7 +157,7 @@ export default function Storefront() {
                       >
                         {cat.image && (
                           <img
-                            src={`http://localhost:5000/uploads/${cat.image}`}
+                            src={`${BASE_URL}/uploads/${cat.image}`}
                             alt={cat.description}
                             className="w-32 h-32 object-contain rounded mb-4"
                           />
@@ -198,7 +198,7 @@ export default function Storefront() {
                 >
                   {selectedCategory.image && (
                     <img
-                      src={`http://localhost:5000/uploads/${selectedCategory.image}`}
+                      src={`${BASE_URL}/uploads/${selectedCategory.image}`}
                       alt={selectedCategory.description}
                       className="w-full h-48 object-contain rounded mb-4"
                     />

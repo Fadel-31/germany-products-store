@@ -9,7 +9,7 @@ export default function Navbar() {
       className="sticky top-0 z-50 p-4 flex items-center space-x-4 backdrop-blur-sm bg-white/30 border-b border-gray-100"
     >
       <motion.img
-        src="../public/germanlogo.png"
+        src="/germanlogo.png"
         alt="Store Logo"
         className="w-10 h-10 object-contain"
         whileHover={{ rotate: 10, scale: 1.1 }}

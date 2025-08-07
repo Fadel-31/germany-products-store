@@ -9,12 +9,11 @@ export default function Storefront() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const scrollRef = useRef(null);
   const contentRef = useRef(null);
-  const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await axios.get(`${BASE_URL}/api/products`);
+        const res = await axios.get("https://germany-products-backend-production.up.railway.app/api/products");
         setProducts(res.data);
       } catch {
         alert("Failed to load products");
@@ -104,7 +103,7 @@ export default function Storefront() {
                 {product.logo && (
                   <div className="w-16 h-16 sm:w-20 sm:h-20 mb-2 rounded-full overflow-hidden border-2 border-gray-200">
                     <img
-                      src={`${BASE_URL}/uploads/${product.logo}`}
+                      src={`https://germany-products-backend-production.up.railway.app/uploads/${product.logo}`}
                       alt={product.title}
                       className="w-full h-full object-cover"
                     />
@@ -158,7 +157,7 @@ export default function Storefront() {
                       >
                         {cat.image && (
                           <img
-                            src={`${BASE_URL}/uploads/${cat.image}`}
+                            src={`https://germany-products-backend-production.up.railway.app/uploads/${cat.image}`}
                             alt={cat.description}
                             className="w-32 h-32 object-contain rounded mb-4"
                           />
@@ -199,7 +198,7 @@ export default function Storefront() {
                 >
                   {selectedCategory.image && (
                     <img
-                      src={`${BASE_URL}/uploads/${selectedCategory.image}`}
+                      src={`https://germany-products-backend-production.up.railway.app/uploads/${selectedCategory.image}`}
                       alt={selectedCategory.description}
                       className="w-full h-48 object-contain rounded mb-4"
                     />

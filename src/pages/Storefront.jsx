@@ -88,11 +88,16 @@ export default function Storefront() {
       <Navbar />
       <div className="flex flex-col h-[calc(100vh-64px)]"> {/* Adjust based on navbar height */}
         {/* Fixed product selector */}
-        {/* Fixed product selector */}
         <div className="sticky top-0 z-10 bg-white pt-4 pb-2 px-6 shadow-sm">
 
           {/* Moving marquee text */}
-          <div className="overflow-hidden whitespace-nowrap mb-5">
+          <div className="relative overflow-hidden whitespace-nowrap mb-5">
+            {/* Left fade */}
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-white to-transparent z-10" />
+
+            {/* Right fade */}
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-white to-transparent z-10" />
+
             <motion.div
               animate={{ x: ["100%", "-100%"] }}
               transition={{ repeat: Infinity, duration: 13, ease: "linear" }}

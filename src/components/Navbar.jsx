@@ -30,7 +30,7 @@ export default function Navbar() {
           transition={{ type: "spring", stiffness: 400 }}
         />
         <motion.h1
-          className="text-l font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500"
+className="text-l font-bold bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-amber-400"
           whileHover={{ scale: 1.05 }}
         >
           German Store

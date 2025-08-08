@@ -295,12 +295,14 @@ export default function AdminPanel() {
         <input
           type="number"
           min="0"
+          step="0.01" 
           placeholder="Price"
           value={categoryPrice}
           onChange={(e) => setCategoryPrice(e.target.value)}
           className="border rounded p-2 w-full text-sm"
           required
         />
+
         <input
           type="file"
           accept="image/*"

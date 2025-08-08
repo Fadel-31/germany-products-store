@@ -134,11 +134,11 @@ export default function Storefront() {
                 className="min-w-[120px] sm:min-w-[180px] cursor-pointer flex flex-col items-center p-2 sm:p-4"
               >
                 {product.logo && (
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 mb-2 rounded-full overflow-hidden border-2 border-gray-200">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 mb-2 rounded-full overflow-hidden  border-2 border-gray-200">
                     <img
                       src={`https://germany-products-backend-production.up.railway.app/uploads/${product.logo}`}
                       alt={product.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover rounded-xl"
                     />
                   </div>
                 )}
@@ -193,7 +193,7 @@ export default function Storefront() {
                           <img
                             src={`https://germany-products-backend-production.up.railway.app/uploads/${cat.image}`}
                             alt={cat.description}
-                            className="w-32 h-32 object-contain rounded mb-4"
+                            className="w-32 h-32 object-contain rounded-xl mb-4 "
                           />
                         )}
                         <p className="text-center font-semibold break-words max-w-full">{cat.description}</p>
@@ -234,7 +234,7 @@ export default function Storefront() {
                     <img
                       src={`https://germany-products-backend-production.up.railway.app/uploads/${selectedCategory.image}`}
                       alt={selectedCategory.description}
-                      className="w-full h-48 object-contain rounded mb-4"
+                      className="w-full h-48 object-contain rounded-xl mb-4"
                     />
                   )}
                   <h3 className="text-xl font-semibold mb-2">{selectedCategory.title}</h3>
@@ -290,16 +290,23 @@ export default function Storefront() {
               </div>
             </div>
             <div className="flex items-center space-x-2 sm:space-x-4">
-              <div className="bg-blue-100 p-2 sm:p-3 rounded-full">
+              <a
+                href="https://www.google.com/maps?q=Nabaiteh,Hay+Alsaray"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-100 p-2 sm:p-3 rounded-full hover:bg-blue-200 transition"
+              >
                 <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>              </div>
+                </svg>
+              </a>
               <div>
                 <h3 className="font-medium text-gray-500 text-sm sm:text-base">Location</h3>
                 <p className="font-semibold sm:text-lg">Nabaiteh, Hay Alsaray</p>
               </div>
             </div>
+
           </div>
         </div>
       </motion.section>

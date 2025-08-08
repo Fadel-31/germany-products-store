@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../components/Navbar";
-
+import Lottie from "lottie-react";
+import separator_Green from "../../public/lottie/separator_Green.json"
 export default function Storefront() {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -91,13 +92,13 @@ export default function Storefront() {
         <div className="sticky top-0 z-10 bg-white pt-4 pb-2 px-6 shadow-sm">
 
           {/* Moving marquee text */}
-          <div className="overflow-hidden whitespace-nowrap mb-2">
+          <div className="overflow-hidden whitespace-nowrap mb-5">
             <motion.div
               animate={{ x: ["100%", "-100%"] }}
-              transition={{ repeat: Infinity, duration: 7, ease: "linear" }}
+              transition={{ repeat: Infinity, duration: 13, ease: "linear" }}
               className="text-sm sm:text-base font-medium text-black"
             >
-              Keep your home fresh & clean • Premium body care essentials • Nivea Shampoo • Fa Shower Gel • Persil Laundry Detergent • Dove Conditioner • Lux Soap • Always Gentle to Your Skin
+              Keep your home fresh & clean • Premium body care essentials • Nivea Shampoo • Fa Shower Gel • Persil Laundry Detergent • Dove Conditioner • Lux Soap • Always Gentle to Your Skin • Perfume • Victora's secret • chanel • Givenchy
             </motion.div>
           </div>
 
@@ -106,6 +107,15 @@ export default function Storefront() {
     [@media(max-width:450px)]:text-center">
             Our Products
           </h1>
+          {/* Lottie separator */}
+          <div className="w-full max-w-xl mx-auto mb-8">
+            <Lottie
+              animationData={separator_Green}
+              loop={true}
+              autoplay={true}
+              style={{ height: 100, width: '100%' }}
+            />
+          </div>
 
           <div
             ref={scrollRef}

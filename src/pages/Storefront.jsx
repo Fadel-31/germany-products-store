@@ -196,7 +196,7 @@ export default function Storefront() {
                             className="w-32 h-32 object-contain rounded mb-4"
                           />
                         )}
-                        <p className="text-center font-semibold">{cat.description}</p>
+                        <p className="text-center font-semibold break-words max-w-full">{cat.description}</p>
                         <p className="text-green-700 font-bold mt-2">${cat.price}</p>
                       </motion.div>
                     ))}

@@ -15,7 +15,7 @@ export default function AdminPanel() {
   const [loadingCategory, setLoadingCategory] = useState(false);
 
   const token = localStorage.getItem("token");
-const BASE_URL = import.meta.env.VITE_API_URL || "https://germany-products-backend-production.up.railway.app"; // fallback
+  const BASE_URL = import.meta.env.VITE_API_URL || "https://germany-products-backend-production.up.railway.app"; // fallback
 
   useEffect(() => {
     fetchProducts();
@@ -104,6 +104,8 @@ const BASE_URL = import.meta.env.VITE_API_URL || "https://germany-products-backe
   async function deleteCategory(productId, categoryId) {
     if (!window.confirm("Delete this category?")) return;
     try {
+      console.log("Deleting category", { productId, categoryId });
+
       await axios.delete(
         `https://germany-products-backend-production.up.railway.app/api/products/${productId}/categories/${categoryId}`,
         {
@@ -117,9 +119,29 @@ const BASE_URL = import.meta.env.VITE_API_URL || "https://germany-products-backe
             : p
         )
       );
-    } catch {
+    } catch (err) {
+      console.log("Deleting category", { productId, categoryId });
+      console.log("Token:", token);
+
+      if (err.response) {
+        // Server responded with a status code outside 2xx
+        console.error("Delete error response status:", err.response.status);
+        console.error("Delete error response headers:", err.response.headers);
+        console.error("Delete error response data:", err.response.data);
+      } else if (err.request) {
+        // Request was made but no response received
+        console.error("No response received:", err.request);
+      } else {
+        // Something happened in setting up the request
+        console.error("Error setting up request:", err.message);
+      }
+
+      console.error("Full error object:", err);
+      console.log('Delete category called:', productId, categoryId);
+
       alert("Failed to delete category");
     }
+
   }
 
   function toggleProduct(id) {

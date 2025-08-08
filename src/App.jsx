@@ -5,13 +5,13 @@ import Storefront from "./pages/Storefront";
 
 function App() {
   return (
-    <BrowserRouter>
+    
       <Routes>
         <Route path="/" element={<Storefront />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-    </BrowserRouter>
+    
   );
 }
 export default App;

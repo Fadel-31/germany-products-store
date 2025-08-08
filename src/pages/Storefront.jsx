@@ -113,7 +113,7 @@ export default function Storefront() {
             Our Products
           </h1>
           {/* Lottie separator */}
-          <div className="w-full max-w-xl mx-auto mb-8">
+          <div className="w-full max-w-xl mx-auto -mb-6">
             <Lottie
               animationData={separator_Green}
               loop={true}
@@ -273,7 +273,7 @@ export default function Storefront() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="bg-gray-50 py-8 px-4 border-t border-gray-200 text-xs sm:text-base"
+        className="bg-gray-50 py-3 px-4 border-t border-gray-200 text-xs sm:text-base"
         id="contact"
       >
         <div className="max-w-4xl mx-auto">

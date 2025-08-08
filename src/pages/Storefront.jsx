@@ -291,7 +291,7 @@ export default function Storefront() {
             </div>
             <div className="flex items-center space-x-2 sm:space-x-4">
               <a
-                href="https://www.google.com/maps?q=Nabaiteh,Hay+Alsaray"
+                href="https://maps.app.goo.gl/KoKNJHgmCSvdSvu67"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-100 p-2 sm:p-3 rounded-full hover:bg-blue-200 transition"

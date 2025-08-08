@@ -1,22 +1,17 @@
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-import Storefront from "./pages/Storefront"; // Customer-facing page
-import PrivateRoute from "./components/PrivateRoute";
+import Storefront from "./pages/Storefront";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Storefront />} />
-      <Route path="/login" element={<Login />} />
-
-      {/* Protected route */}
-      <Route
-        path="/dashboard"
-        element={<PrivateRoute><Dashboard /></PrivateRoute>}
-      />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Storefront />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
 export default App;

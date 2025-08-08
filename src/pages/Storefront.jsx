@@ -87,8 +87,26 @@ export default function Storefront() {
       <Navbar />
       <div className="flex flex-col h-[calc(100vh-64px)]"> {/* Adjust based on navbar height */}
         {/* Fixed product selector */}
+        {/* Fixed product selector */}
         <div className="sticky top-0 z-10 bg-white pt-4 pb-2 px-6 shadow-sm">
-          <h1 className="text-2xl font-bold mb-4">Our Products</h1>
+
+          {/* Moving marquee text */}
+          <div className="overflow-hidden whitespace-nowrap mb-2">
+            <motion.div
+              animate={{ x: ["100%", "-100%"] }}
+              transition={{ repeat: Infinity, duration: 7, ease: "linear" }}
+              className="text-sm sm:text-base font-medium text-black"
+            >
+              Keep your home fresh & clean • Premium body care essentials • Nivea Shampoo • Fa Shower Gel • Persil Laundry Detergent • Dove Conditioner • Lux Soap • Always Gentle to Your Skin
+            </motion.div>
+          </div>
+
+          {/* Title */}
+          <h1 className="text-2xl font-bold mb-4 text-left sm:text-left 
+    [@media(max-width:450px)]:text-center">
+            Our Products
+          </h1>
+
           <div
             ref={scrollRef}
             className="flex space-x-6 overflow-x-auto no-scrollbar cursor-grab py-4"
@@ -128,6 +146,7 @@ export default function Storefront() {
             ))}
           </div>
         </div>
+
 
         {/* Scrollable content area */}
         <div ref={contentRef} className="flex-1 overflow-y-auto px-6 pb-8">
@@ -235,12 +254,12 @@ export default function Storefront() {
     }
       `}</style>
       {/* Contact Section */}
-      {/* Contact Section */}
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         className="bg-gray-50 py-8 px-4 border-t border-gray-200 text-xs sm:text-base"
+        id="contact"
       >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl sm:text-2xl font-bold text-center mb-6">Contact Us</h2>
